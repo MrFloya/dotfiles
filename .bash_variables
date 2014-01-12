@@ -1,0 +1,17 @@
+# Custom bash environment variables
+
+# default editor -> nano
+EDITOR=/usr/bin/nano 
+
+# -- wine specific --
+# default prefix (hearthstone atm)
+export WINEPREFIX=~/.wine_hearthstone
+# --               --
+
+# -- GO specific --
+# GOPATH
+export GOPATH=~/coding/go
+
+# add $GOPATH/bin to $PATH
+export PATH=$PATH:$GOPATH/bin
+# --             --
