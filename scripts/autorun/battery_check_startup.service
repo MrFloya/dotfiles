@@ -1,0 +1,9 @@
+[Unit]
+Description=Enables battery checking script at startup
+
+[Service]
+Type=simple
+ExecStart=/home/florian/scripts/autorun/bat_check.sh
+
+[Install]
+WantedBy=multi-user.target
