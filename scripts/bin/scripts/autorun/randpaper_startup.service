@@ -1,0 +1,9 @@
+[Unit]
+Description=Sets a random wallpaper at startup
+
+[Service]
+Type=simple
+ExecStart=randpaper "/home/florian/images/wallpaper/awesome_current_wallpaper" "/home/florian/images/wallpaper"
+
+[Install]
+WantedBy=multi-user.target
