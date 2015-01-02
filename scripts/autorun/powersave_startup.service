@@ -1,9 +1,0 @@
-[Unit]
-Description=Enables various power safe options at boottime
-
-[Service]
-Type=simple
-ExecStart=/home/florian/scripts/autorun/powersave.sh
-
-[Install]
-WantedBy=multi-user.target
