@@ -155,3 +155,4 @@ bar {
 
 # Autostart
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
+exec --no-startup-id feh --randomize --recursive --bg-fill ~/images/wallpaper
