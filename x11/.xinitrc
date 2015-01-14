@@ -14,8 +14,5 @@ fi
 # Merge .Xresources
 xrdb -merge ~/.Xresources
 
-# Start xbindkeys
-xbindkeys
-
 # Start i3
 exec i3 -c ~/.config/i3/i3config
