@@ -14,5 +14,8 @@ fi
 # Merge .Xresources
 xrdb -merge ~/.Xresources
 
+# Set VDPAU environment variable
+export VDPAU_DRIVER=i965
+
 # Start i3
 exec i3 -c ~/.config/i3/i3config
