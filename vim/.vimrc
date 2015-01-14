@@ -7,7 +7,7 @@ set mouse=a
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set nowrap
+" set nowrap
 
 set laststatus=2
 set encoding=utf-8
