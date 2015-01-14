@@ -1,7 +1,9 @@
 # xterm
 xterm*termName:		xterm-256color
-xterm*locale:		true
+xterm*faceName:		DejaVu Sans Mono:size=12
 xterm*foreground:	#dedede
 xterm*background:	#121212
 xterm*cursorColor:	#cdcdcd
-xterm*faceName:		DejaVu Sans Mono:size=12:antialias=false
+xterm*scollBar:		false
+xterm*antialias:	true
+xterm*locale:		true
