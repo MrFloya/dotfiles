@@ -1,3 +1,19 @@
-[submodule "zsh/.zprezto"]
+[submodule "prezto-fork"]
 	path = zsh/.zprezto
 	url = git://github.com/mrfloya/prezto.git
+
+[submodule "Vundle.vim"]
+	path = vim/.vim/bundle/Vundle.vim
+	url = git://github.com/gmarik/Vundle.vim.git
+
+[submodule "rust.vim"]
+	path = vim/.vim/bundle/rust.vim
+	url = git://github.com/rust-lang/rust.vim.git
+
+[submodule "syntastic"]
+	path = vim/.vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+
+[submodule "vim-toml"]
+	path = vim/.vim/bundle/vim-toml
+	url = git://github.com/cespare/vim-toml.git
