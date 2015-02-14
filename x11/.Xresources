@@ -1,5 +1,5 @@
 xterm*termName:		xterm-256color
-xterm*faceName:		DejaVu Sans Mono:size=12
+xterm*faceName:		DejaVu Sans Mono:size=9
 xterm*foreground:	#dedede
 xterm*background:	#121212
 xterm*cursorColor:	#cdcdcd
