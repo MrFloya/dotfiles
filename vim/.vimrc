@@ -14,6 +14,9 @@ Plugin 'scrooloose/syntastic'
 " rust.vim
 Plugin 'rust-lang/rust.vim'
 
+" racer
+Plugin 'phildawes/racer'
+
 " vim-toml (toml filetype)
 Plugin 'cespare/vim-toml'
 
@@ -34,3 +37,8 @@ set softtabstop=4
 set laststatus=2
 set encoding=utf-8
 set ttimeoutlen=50
+
+" racer settings
+set hidden
+let g:racer_cmd = "~/src/rust/racer/target/release/racer"
+let $RUST_SRC_PATH = "~/src/rust/rust_mozilla/src"
