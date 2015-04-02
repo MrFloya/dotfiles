@@ -41,4 +41,4 @@ set ttimeoutlen=50
 " racer settings
 set hidden
 let g:racer_cmd = "~/src/rust/racer/target/release/racer"
-let $RUST_SRC_PATH = "/home/florian/src/rust/rust_mozilla/src"
+let $RUST_SRC_PATH = "/home/florian/src/rust/rust_fork/src"

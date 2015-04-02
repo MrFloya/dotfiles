@@ -1,2 +1,5 @@
 # Ignore vim swap files
 *.swp
+
+# Ignore vim network history
+.netrwhist
