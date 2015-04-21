@@ -3,3 +3,5 @@
 	email = mrfloya_github@outlook.com
 [push]
 	default = simple
+[alias]
+	st = status -s
