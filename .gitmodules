@@ -23,5 +23,5 @@
 	url = git://github.com/cespare/vim-toml.git
 
 [submodule "racer"]
-	path = vim/.vim/bundle/vim-toml
+	path = vim/.vim/bundle/racer
 	url = git://github.com/phildawes/racer.git
