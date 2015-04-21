@@ -6,6 +6,10 @@
 	path = vim/.vim/bundle/Vundle.vim
 	url = git://github.com/gmarik/Vundle.vim.git
 
+[submodule "vim-airline"]
+	path = vim/.vim/bundle/vim-airline
+	url = git://github.com/bling/vim-airline.git
+
 [submodule "rust.vim"]
 	path = vim/.vim/bundle/rust.vim
 	url = git://github.com/rust-lang/rust.vim.git

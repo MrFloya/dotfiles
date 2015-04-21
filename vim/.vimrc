@@ -8,6 +8,9 @@ call vundle#begin()
 " Vundle itself
 Plugin 'gmarik/Vundle.vim'
 
+" vim-airline
+Plugin 'bling/vim-airline'
+
 " syntastic (external syntax checking)
 Plugin 'scrooloose/syntastic'
 
@@ -37,6 +40,9 @@ set softtabstop=4
 set laststatus=2
 set encoding=utf-8
 set ttimeoutlen=50
+
+" vim-airline settings
+let g:airline_powerline_fonts = 1
 
 " racer settings
 set hidden
