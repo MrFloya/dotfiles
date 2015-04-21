@@ -5,13 +5,13 @@ script=$(basename $0)
 user=$(logname)
 
 # Required commands
-pkgmgr="$(which pacman) -Syu --confirm"
 sudo="$(which sudo)"
 chsh="$(which chsh) -s"
 su="$(which su) -u"
 
 # Setup variables
-packages="zsh vim git i3-wm stow"
+pre_packages="package-query yaourt"
+packages="zsh vim git i3 stow xorg-server polkit clang htop powertop ntfs-3g cups wget openssh"
 modules="zsh i3 scripts vim x11 zsh"
 
 # Custom echo to distinguish script output from command output
@@ -26,19 +26,22 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 myecho "Welcome to $script!"
-
 myecho "Setting up environment for \"$user\""
 
-myecho "1. Installing required packages.."
-$pkgmgr $packages
+myecho "1. Installing package-query and yaourt.."
+sh <(curl aur.sh) -si $pre_packages
+rm -rf $pre_packages
 
-myecho "2. Changing default shell to zsh.."
+myecho "2. Installing remaining packages.."
+$(which yaourt) --Syua --noconfirm $packages
+
+myecho "3. Changing default shell to zsh.."
 $chsh $(which zsh) $user
 
-myecho "3. Changing to user mode for the rest of the setup.."
+myecho "4. Changing to user mode for the rest of the setup.."
 $su $user
 
-myecho "4. Symlinking dofiles.."
+myecho "5. Symlinking dofiles.."
 $(which stow) -v -S $modules
 
 myecho "All done. See you around!"
