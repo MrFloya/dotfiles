@@ -14,6 +14,9 @@ fi
 # Merge .Xresources
 xrdb -merge ~/.Xresources
 
+# Set DPI
+xrandr --dpi 192
+
 # Set VDPAU environment variable
 export VDPAU_DRIVER=i965
 

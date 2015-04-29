@@ -6,3 +6,5 @@ xterm*cursorColor:	#cdcdcd
 xterm*scollBar:		false
 xterm*antialias:	true
 xterm*locale:		true
+
+Xft.dpi:		192

@@ -1,47 +1,43 @@
-#!/bin/sh
+#!/bin/bash
 
 # Some basic variables
 script=$(basename $0)
 user=$(logname)
 
-# Required commands
-sudo="$(which sudo)"
-chsh="$(which chsh) -s"
-su="$(which su) -u"
-
 # Setup variables
 pre_packages="package-query yaourt"
-packages="zsh vim git i3 stow xorg-server polkit clang htop powertop ntfs-3g cups wget openssh"
-modules="zsh i3 scripts vim x11 zsh"
+packages="zsh vim git i3-wm i3lock i3status stow xorg-server polkit clang htop powertop ntfs-3g cups wget openssh"
+modules="zsh git i3 scripts vim x11 zsh"
 
 # Custom echo to distinguish script output from command output
-myecho() {
+say() {
+	echo
     echo "[$script] $1"
+	echo
 }
 
-if [ $(id -u) -ne 0 ]; then
-    myecho "Executed as user. Restarting with sudo.."
-    $sudo $0
+if [ $(id -u) -e 0 ]; then
+    say "Cannot run as root! Exiting!"
     exit
 fi
 
-myecho "Welcome to $script!"
-myecho "Setting up environment for \"$user\""
+say "Welcome to $script!"
+say "Setting up environment for \"$user\""
 
-myecho "1. Installing package-query and yaourt.."
-sh <(curl aur.sh) -si $pre_packages
+say "1. Installing package-query and yaourt.."
+bash <(curl aur.sh) -si $pre_packages
 rm -rf $pre_packages
 
-myecho "2. Installing remaining packages.."
-$(which yaourt) --Syua --noconfirm $packages
+say "2. Installing remaining packages.."
+$(which yaourt) -Syua --noconfirm $packages
 
-myecho "3. Changing default shell to zsh.."
-$chsh $(which zsh) $user
+say "3. Changing default shell to zsh.."
+sudo chsh $(which zsh) $user
 
-myecho "4. Changing to user mode for the rest of the setup.."
-$su $user
+say "4. Preparing home folder.."
+mkdir -p ~/.config # To prevent stow from linking the whole folder ;)
 
-myecho "5. Symlinking dofiles.."
+say "5. Symlinking dofiles.."
 $(which stow) -v -S $modules
 
-myecho "All done. See you around!"
+say "All done. See you around!"
