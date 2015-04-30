@@ -46,10 +46,10 @@ bindsym $mod+d exec dmenu_run
 #bindsym $mod+semicolon focus right
 
 # select focused window:
-bindsym $mod+Left focus left
+#bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Right focus right
 
 # move focused window:
 bindsym $mod+Shift+Left move left
@@ -94,6 +94,9 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -141,8 +144,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # bind media keys
-bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 20
+bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 10
 
 bindsym XF86AudioRaiseVolume exec amixer sset Master '5%+'
 bindsym XF86AudioLowerVolume exec amixer sset Master '5%-'
