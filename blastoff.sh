@@ -1,7 +1,7 @@
 #!/bin/sh
 
 repo='https://github.com/mrfloya/dotfiles.git'
-target='~/.dotfiles'
+target='.dotfiles'
 
 git clone --recursive $repo $target
 
