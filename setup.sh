@@ -6,7 +6,7 @@ user=$(logname)
 
 # Setup variables
 pre_packages="package-query yaourt"
-packages="zsh vim git i3-wm i3lock i3status stow xorg-server polkit clang htop powertop ntfs-3g cups wget openssh"
+packages="zsh vim i3-wm i3lock i3status stow xorg-server polkit clang htop powertop ntfs-3g cups wget openssh"
 modules="zsh git i3 scripts vim x11 zsh"
 
 # Custom echo to distinguish script output from command output
@@ -36,6 +36,7 @@ sudo chsh $(which zsh) $user
 
 say "4. Preparing home folder.."
 mkdir -p ~/.config # To prevent stow from linking the whole folder ;)
+mkdir -p ~/{bin,tmp}
 
 say "5. Symlinking dofiles.."
 $(which stow) -v -S $modules
