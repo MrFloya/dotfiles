@@ -8,23 +8,25 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 2
 }
 
 #order += "ipv6"
+order += "volume master"
 order += "disk /"
 order += "disk /home"
 #order += "run_watch DHCP"
-#order += "run_watch VPN"
 order += "wireless wlp2s0"
+order += "run_watch VPN"
 #order += "ethernet enp2s0"
 order += "battery 0"
-order += "load"
+order += "cpu_usage"
+#order += "load"
 order += "tztime local"
 
 wireless wlp2s0 {
-        format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_up = " %quality (%bitrate) @ %essid - %ip"
+        format_down = " down"
 }
 
 ethernet eth0 {
@@ -34,7 +36,12 @@ ethernet eth0 {
 }
 
 battery 0 {
-        format = "%status %percentage %remaining"
+        format = "%status  %percentage %remaining"
+		status_bat = ""
+		status_chr = ""
+		status_full = ""
+		hide_seconds = true
+		integer_battery_capacity = true
 }
 
 run_watch DHCP {
@@ -42,7 +49,8 @@ run_watch DHCP {
 }
 
 run_watch VPN {
-        pidfile = "/var/run/vpnc/pid"
+		format = "%title"
+        pidfile = "/var/run/ppp*.pid"
 }
 
 tztime local {
@@ -53,10 +61,21 @@ load {
         format = "%1min"
 }
 
+cpu_usage {
+		format = "%usage"
+}
+
+volume master {
+		device = "default"
+		mixer = "Master"
+		format = ": %volume"
+		format_muted = ": off"
+}
+
 disk "/" {
-        format = "%avail (/)"
+        format = " %avail (/)"
 }
 
 disk "/home" {
-	format = "%avail (/home)"
+	format = " %avail (/home)"
 }

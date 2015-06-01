@@ -5,4 +5,4 @@
 
 i3-msg "exec i3-sensible-terminal"
 sleep 0.05
-i3-msg "split h; split v"
+i3-msg "split h; split v; split h"

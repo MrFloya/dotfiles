@@ -17,6 +17,9 @@ xrdb -merge ~/.Xresources
 # Set DPI
 xrandr --dpi 192
 
+# Allow local X connections for container
+xhost +local:
+
 # Set VDPAU environment variable
 export VDPAU_DRIVER=i965
 

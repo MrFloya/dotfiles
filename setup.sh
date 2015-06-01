@@ -6,7 +6,7 @@ user=$(logname)
 
 # Setup variables
 pre_packages="package-query yaourt"
-packages="zsh vim i3-wm i3lock i3status stow xorg-server polkit clang htop powertop ntfs-3g cups wget openssh"
+packages="zsh vim i3-wm i3lock i3status stow xorg-server polkit clang htop powertop ntfs-3g cups wget openssh feh xorg-xrandr xorg-xrdb alsa-utils pkgfile archlinux-wallpaper xterm xorg-xbacklight"
 modules="zsh git i3 scripts vim x11 zsh"
 
 # Custom echo to distinguish script output from command output
@@ -32,7 +32,7 @@ say "2. Installing remaining packages.."
 $(which yaourt) -Syua --noconfirm $packages
 
 say "3. Changing default shell to zsh.."
-sudo chsh $(which zsh) $user
+sudo chsh -s $(which zsh) $user
 
 say "4. Preparing home folder.."
 mkdir -p ~/.config # To prevent stow from linking the whole folder ;)
