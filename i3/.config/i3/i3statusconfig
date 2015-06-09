@@ -25,8 +25,8 @@ order += "cpu_usage"
 order += "tztime local"
 
 wireless wlp2s0 {
-        format_up = " %quality (%bitrate) @ %essid - %ip"
-        format_down = " down"
+        format_up = "  %quality (%bitrate) @ %essid - %ip"
+        format_down = "  down"
 }
 
 ethernet eth0 {
@@ -39,7 +39,7 @@ battery 0 {
         format = "%status  %percentage %remaining"
 		status_bat = ""
 		status_chr = ""
-		status_full = ""
+		status_full = "FULL"
 		hide_seconds = true
 		integer_battery_capacity = true
 }
@@ -73,9 +73,9 @@ volume master {
 }
 
 disk "/" {
-        format = " %avail (/)"
+        format = "  %avail (/)"
 }
 
 disk "/home" {
-	format = " %avail (/home)"
+	format = "  %avail (/home)"
 }
