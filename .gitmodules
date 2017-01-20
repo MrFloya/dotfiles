@@ -1,6 +1,6 @@
 [submodule "prezto-fork"]
 	path = zsh/.zprezto
-	url = git://github.com/mrfloya/prezto.git
+	url = git://github.com/1wilkens/prezto.git
 
 [submodule "Vundle.vim"]
 	path = vim/.vim/bundle/Vundle.vim

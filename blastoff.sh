@@ -1,6 +1,6 @@
 #!/bin/sh
 
-repo='https://github.com/mrfloya/dotfiles.git'
+repo='https://github.com/1wilkens/dotfiles.git'
 target='.dotfiles'
 
 git clone --recursive $repo $target
