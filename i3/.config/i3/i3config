@@ -158,9 +158,9 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 10
 
-bindsym XF86AudioRaiseVolume exec amixer sset Master '5%+'
-bindsym XF86AudioLowerVolume exec amixer sset Master '5%-'
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioMute exec pamixer -t
 
 # bind other various keys
 bindsym $mod+Shift+numbersign "exec --no-startup-id feh --randomize --recursive --bg-fill ~/images/wallpaper"

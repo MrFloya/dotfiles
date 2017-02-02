@@ -11,21 +11,21 @@ general {
         interval = 2
 }
 
-#order += "ipv6"
 order += "volume master"
 order += "disk /"
 order += "disk /home"
 #order += "run_watch DHCP"
-order += "wireless wlp2s0"
 order += "run_watch VPN"
+order += "wireless wlp2s0"
 #order += "ethernet enp2s0"
+order += "ipv6"
 order += "battery 0"
 order += "cpu_usage"
 #order += "load"
 order += "tztime local"
 
 wireless wlp2s0 {
-        format_up = "  %quality (%bitrate) @ %essid - %ip"
+        format_up = "  %quality (%bitrate @ %essid) - %ip"
         format_down = "  down"
 }
 
@@ -66,10 +66,9 @@ cpu_usage {
 }
 
 volume master {
-		device = "default"
-		mixer = "Master"
+		device = "pulse"
 		format = ": %volume"
-		format_muted = ": off"
+		format_muted = ": off (%volume)"
 }
 
 disk "/" {
