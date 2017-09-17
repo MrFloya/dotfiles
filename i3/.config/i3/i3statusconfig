@@ -37,11 +37,11 @@ ethernet eth0 {
 
 battery 0 {
         format = "%status  %percentage %remaining"
-		status_bat = ""
-		status_chr = ""
-		status_full = "FULL"
-		hide_seconds = true
-		integer_battery_capacity = true
+        status_bat = ""
+        status_chr = ""
+        status_full = "FULL"
+        hide_seconds = true
+        integer_battery_capacity = true
 }
 
 run_watch DHCP {
@@ -49,7 +49,7 @@ run_watch DHCP {
 }
 
 run_watch VPN {
-		format = "%title"
+        format = "%title"
         pidfile = "/var/run/ppp*.pid"
 }
 
@@ -62,13 +62,13 @@ load {
 }
 
 cpu_usage {
-		format = "%usage"
+        format = "%usage"
 }
 
 volume master {
-		device = "pulse"
-		format = ": %volume"
-		format_muted = ": off (%volume)"
+        device = "pulse"
+        format = " : %volume"
+        format_muted = ": off (%volume)"
 }
 
 disk "/" {
