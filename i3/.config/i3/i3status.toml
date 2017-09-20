@@ -1,5 +1,12 @@
 theme = "solarized-dark"
-#icons = "awesome"
+
+[icons]
+name = "awesome"
+[icons.overrides]
+bat_discharging = "  "
+cogs = "LOAD "
+cpu = "CPU "
+memory_mem = "MEM "
 
 [[block]]
 block = "sound"
@@ -22,14 +29,14 @@ unit = "GiB"
 interval = 20
 
 [[block]]
-block = "memory"
-display_type = "memory"
-format_mem = "{Mup}%"
-clickable = false
-
-[[block]]
 block = "cpu"
 interval = 1
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mug} GiB ({Mup}%)"
+clickable = false
 
 [[block]]
 block = "load"
@@ -42,5 +49,5 @@ interval = 5
 
 [[block]]
 block = "time"
-interval = 30
-format = "%d.%m.%Y %R"
+interval = 20
+format = " %d.%m.%Y %R"
