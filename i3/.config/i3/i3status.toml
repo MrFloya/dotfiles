@@ -3,7 +3,9 @@ theme = "solarized-dark"
 [icons]
 name = "awesome"
 [icons.overrides]
+bat_charging = "  "
 bat_discharging = "  "
+bat_full = "  "
 cogs = "LOAD "
 cpu = "CPU "
 memory_mem = "MEM "
