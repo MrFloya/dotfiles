@@ -1,0 +1,5 @@
+#!/bin/sh
+
+PDF=$(which llpp)
+
+$PDF $1 &
