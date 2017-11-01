@@ -31,6 +31,14 @@ unit = "GiB"
 interval = 20
 
 [[block]]
+block = "net"
+device = "wlp2s0"
+ssid = true
+ip = true
+tx = false
+rx = false
+
+[[block]]
 block = "cpu"
 interval = 1
 

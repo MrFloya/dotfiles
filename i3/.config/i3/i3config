@@ -177,7 +177,7 @@ bindsym $mod+Shift+l "exec --no-startup-id i3lock-fancy -t '' -- maim"
 bar {
       font pango:DejaVu Sans Mono, Icons 8
       position top
-      status_command i3status-rs ~/.config/i3/i3status.toml
+      status_command ~/src/rust/i3status-rust/target/release/i3status-rs ~/.config/i3/i3status.toml
 }
 
 # autostart
