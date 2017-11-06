@@ -35,8 +35,8 @@ block = "net"
 device = "wlp2s0"
 ssid = true
 ip = true
-tx = false
-rx = false
+speed_up = false
+speed_down = false
 
 [[block]]
 block = "cpu"
