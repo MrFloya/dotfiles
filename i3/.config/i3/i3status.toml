@@ -34,6 +34,7 @@ interval = 20
 block = "net"
 device = "wlp2s0"
 ssid = true
+bitrate = true
 ip = true
 speed_up = false
 speed_down = false
