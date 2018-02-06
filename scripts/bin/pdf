@@ -2,4 +2,4 @@
 
 PDF=$(which llpp)
 
-$PDF $1 &
+$PDF "$1" &

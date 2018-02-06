@@ -9,6 +9,13 @@ bat_full = "  "
 cogs = "LOAD "
 cpu = "CPU "
 memory_mem = "MEM "
+music = "  "
+
+#[[block]]
+#block = "music"
+#player = "spotify"
+#max_width = 40
+#marquee = false
 
 [[block]]
 block = "sound"
@@ -32,6 +39,13 @@ interval = 20
 
 [[block]]
 block = "net"
+device = "enp0s20u1"
+ip = true
+speed_up = false
+speed_down = false
+
+[[block]]
+block = "net"
 device = "wlp2s0"
 ssid = true
 bitrate = true
@@ -46,13 +60,8 @@ interval = 1
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mug} GiB ({Mup}%)"
+format_mem = "{Mug} GiB"
 clickable = false
-
-[[block]]
-block = "load"
-interval = 1
-format = "{1m}"
 
 [[block]]
 block = "battery"
