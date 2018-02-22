@@ -154,25 +154,24 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# bind media keys
-bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 10
+# bind brightness keys
+bindsym XF86MonBrightnessUp exec "xbacklight -steps 1 -time 0 -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -steps 1 -time 0 -dec 10"
 
-bindsym XF86AudioRaiseVolume exec pamixer -i 5
-bindsym XF86AudioLowerVolume exec pamixer -d 5
-bindsym XF86AudioMute exec pamixer -t
+# bind volume keys
+bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
+bindsym XF86AudioLowerVolume exec "pamixer -d 5"
+bindsym XF86AudioMute exec "pamixer -t"
+
+# bind media keys
+bindsym XF86AudioPrev exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioPlay exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioPause exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioNext exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
 # bind other various keys
-bindsym $mod+Shift+numbersign "exec --no-startup-id feh --randomize --recursive --bg-fill ~/images/wallpaper"
-bindsym $mod+Shift+l "exec --no-startup-id i3lock-fancy -t '' -- maim"
-
-# start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#	position		top
-#    status_command 	i3status -c ~/.config/i3/i3statusconfig
-#
-#}
+bindsym $mod+Shift+numbersign exec --no-startup-id "feh --randomize --recursive --bg-fill ~/images/wallpaper"
+bindsym $mod+Shift+l exec --no-startup-id "i3lock-fancy -t '' -- maim"
 
 for_window [class="^.*"] border pixel 0
 

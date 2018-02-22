@@ -37,12 +37,12 @@ info_type = "available"
 unit = "GiB"
 interval = 20
 
-[[block]]
-block = "net"
-device = "enp0s20u1"
-ip = true
-speed_up = false
-speed_down = false
+#[[block]]
+#block = "net"
+#device = "enp0s20u1"
+#ip = true
+#speed_up = false
+#speed_down = false
 
 [[block]]
 block = "net"
@@ -66,6 +66,7 @@ clickable = false
 [[block]]
 block = "battery"
 interval = 5
+#show = "both"
 
 [[block]]
 block = "time"
