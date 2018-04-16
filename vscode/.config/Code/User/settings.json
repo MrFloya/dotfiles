@@ -132,5 +132,6 @@
 	"explorer.confirmDelete": false,
 	"gitlens.codeLens.enabled": false,
 	"gitlens.currentLine.enabled": false,
-	"gitlens.hovers.currentLine.over": "line"
+	"gitlens.hovers.currentLine.over": "line",
+	"latex-workshop.view.pdf.viewer": "tab"
 }
