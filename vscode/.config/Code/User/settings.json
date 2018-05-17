@@ -59,12 +59,13 @@
 		"*.lol",
 		"*.run.xml",
 		"*.synctex.gz",
-		"*.xdy"
+		"*.xdy",
+		"*.nav",
+		"*.snm"
 	],
 	"latex-workshop.chktex.enabled": true,
 	"window.zoomLevel": 0,
 	"extensions.ignoreRecommendations": true,
-	"workbench.panel.location": "bottom",
 	"cSpell.language": "en",
 	"cSpell.userWords": [
 		"a",
@@ -130,8 +131,10 @@
 	],
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
-	"gitlens.codeLens.enabled": false,
-	"gitlens.currentLine.enabled": false,
-	"gitlens.hovers.currentLine.over": "line",
-	"latex-workshop.view.pdf.viewer": "tab"
+	"latex-workshop.view.pdf.viewer": "tab",
+	"python.formatting.provider": "autopep8",
+	"python.formatting.autopep8Args": [
+		"--max-line-length",
+		"120"
+	]
 }

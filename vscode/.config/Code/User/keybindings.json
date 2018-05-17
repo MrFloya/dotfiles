@@ -3,5 +3,9 @@
     {
         "key": "ctrl+alt+l",
         "command": "latex-workshop.actions"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "latex-workshop.clean"
     }
 ]
