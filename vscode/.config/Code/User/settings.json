@@ -29,6 +29,8 @@
 		"**/.DS_Store": true,
 		"**/target": true,
 		"**/__pycache__": true,
+		"**/.stfolder": true,
+		"**/.gitkeep": true,
 	},
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
@@ -36,7 +38,7 @@
 	"telemetry.enableTelemetry": false,
 	"workbench.activityBar.visible": true,
 	"workbench.colorTheme": "An Old Hope",
-	"workbench.iconTheme": "vscode-icons",
+	"workbench.iconTheme": "material-icon-theme",
 	"workbench.startupEditor": "newUntitledFile",
 	"window.menuBarVisibility": "toggle",
 	// Extensions
