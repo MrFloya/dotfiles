@@ -2,6 +2,9 @@
 /* spellchecker: disable */
 {
 	// Builtin
+	"breadcrumbs.enabled": true,
+	"breadcrumbs.filePath": "on",
+	"breadcrumbs.symbolPath": "on",
 	"editor.accessibilitySupport": "off",
 	"editor.cursorBlinking": "solid",
 	"editor.detectIndentation": true,
@@ -41,35 +44,18 @@
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.startupEditor": "newUntitledFile",
 	"window.menuBarVisibility": "toggle",
+	"update.enableWindowsBackgroundUpdates": false,
 	// Extensions
 	"C_Cpp.intelliSenseEngine": "Default",
 	"crates.upToDateDecorator": "✓",
 	"cSpell.allowCompoundWords": true,
 	"cSpell.enabledLanguageIds": [
 		"asciidoc",
-		"c",
-		"cpp",
-		"csharp",
-		"css",
-		"go",
-		"handlebars",
-		"html",
-		"jade",
-		"javascript",
-		"javascriptreact",
-		"json",
 		"latex",
-		"less",
 		"markdown",
-		"php",
 		"plaintext",
-		"python",
-		"pub",
 		"restructuredtext",
-		"scss",
 		"text",
-		"typescript",
-		"typescriptreact",
 		"yml"
 	],
 	"cSpell.language": "en",
@@ -175,4 +161,5 @@
 	"rust.all_targets": false,
 	"rust.build_on_save": true,
 	"rust.cfg_test": false
+	"vsicons.presets.foldersAllDefaultIcon": true,
 }
