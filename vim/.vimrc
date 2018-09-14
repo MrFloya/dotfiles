@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
+Plug 'junegunn/fzf.vim'
 
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
@@ -19,7 +20,15 @@ Plug 'w0rp/ale'
 " Completion (ncm2)
 Plug 'ncm2/ncm2'
 
+" Language support
+Plug 'lervag/vimtex'
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+
 call plug#end()
+
+runtime macros/matchit.vim
 
 " ======================
 " # EDITOR SETTINGS
@@ -63,13 +72,6 @@ set ignorecase
 set smartcase
 set gdefault
 
-" Search results centered please
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-
 " Search with ripgrep if available
 if executable('rg')
 	set grepprg=rg\ --no-heading\ --vimgrep
@@ -93,12 +95,15 @@ set ttyfast
 set lazyredraw
 set showcmd
 set mouse=a
+set colorcolumn=100
+set laststatus=2
 
 set list
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•,tab:>-
 
 " Colors
 set background=dark
+" colorscheme base16-atelier-dune
 
 " ======================
 " # KEYBINDINGS
@@ -123,6 +128,21 @@ nnoremap <right> :bn<CR>
 nnoremap j gj
 nnoremap k gk
 
+" Search results centered please
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+" Open hotkeys
+map <C-p> :Files<CR>
+
+" Suspend with Ctrl-F
+inoremap <C-f> :sus<CR>
+vnoremap <C-f> :sus<CR>
+nnoremap <C-f> :sus<CR>
+
 " I can type :help on my own, thanks.
 map <F1> <Esc>
 imap <F1> <Esc>
@@ -139,3 +159,12 @@ imap <F1> <Esc>
 let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
+
+" fzf
+let g:fzf_layout = { 'down': '~20%' }
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \ <bang>0 ? fzf#vim#with_preview('up:60%')
+  \         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \ <bang>0)
