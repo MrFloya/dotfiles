@@ -1,4 +1,5 @@
 theme = "solarized-dark"
+#theme = "slick"
 
 [icons]
 name = "awesome"
@@ -19,7 +20,6 @@ music = "  "
 
 [[block]]
 block = "sound"
-interval = 1
 
 [[block]]
 block = "disk_space"

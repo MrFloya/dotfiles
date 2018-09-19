@@ -90,9 +90,9 @@ set $w3 "3: dev"
 set $w4 "4: dev"
 set $w5 "5: uni"
 set $w6 "6: uni"
-set $w7 "7: .:"
-set $w8 "8: ::"
-set $w9 "9: :."
+set $w7 "7: music"
+set $w8 "8: mail"
+set $w9 "9: mm"
 set $w0 "100: tmp"
 
 bindsym $mod+1 workspace $w1
@@ -170,7 +170,7 @@ bindsym XF86AudioPause exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/
 bindsym XF86AudioNext exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
 # bind other various keys
-bindsym $mod+Shift+numbersign exec --no-startup-id "feh --randomize --recursive --bg-fill ~/images/wallpaper"
+bindsym $mod+Shift+numbersign exec --no-startup-id "feh --randomize --recursive --bg-fill ~/img/wallpaper"
 bindsym $mod+Shift+l exec --no-startup-id "i3lock-fancy -t '' -- maim"
 
 for_window [class="^.*"] border pixel 0
@@ -180,12 +180,13 @@ gaps inner 10
 smart_gaps on
 
 bar {
-      font pango:DejaVu Sans Mono, Icons 8
+      font pango:DejaVu Sans Mono, Icons 10
       position top
 
       status_command ~/src/rust/i3status-rust/target/release/i3status-rs ~/.config/i3/i3status.toml
+      #status_command i3status-rs ~/.config/i3/i3status.toml
 }
 
 # autostart
-exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
-exec --no-startup-id feh --randomize --recursive --bg-fill ~/images/wallpaper
+exec --no-startup-id "compton --config ~/.config/compton/compton.conf -b"
+exec --no-startup-id "feh --randomize --recursive --bg-fill ~/img/wallpaper"
