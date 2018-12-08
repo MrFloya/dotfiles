@@ -10,12 +10,12 @@ bat_full = "  "
 cogs = "LOAD "
 cpu = "CPU "
 memory_mem = "MEM "
-music = "  "
+music = "   "
 
 #[[block]]
 #block = "music"
 #player = "spotify"
-#max_width = 40
+#max_width = 50
 #marquee = false
 
 [[block]]
@@ -66,7 +66,8 @@ clickable = false
 [[block]]
 block = "battery"
 interval = 5
-#show = "both"
+upower = true
+#format = "{percentage}% [{time}]"
 
 [[block]]
 block = "time"

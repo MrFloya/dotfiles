@@ -173,9 +173,13 @@ bindsym XF86AudioPlay exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/b
 bindsym XF86AudioPause exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym XF86AudioNext exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
-# bind other various keys
+# <Mod+Shift+#> sets new random wallpapers
 bindsym $mod+Shift+numbersign exec --no-startup-id "feh --randomize --recursive --bg-fill ~/img/wallpaper"
-#bindsym $mod+Shift+l exec --no-startup-id "i3lock-fancy -t '' -- maim"
+
+bindsym $mod+F1 exec --no-startup-id "~/bin/pa_switchsink"
+
+# <Mod+Shift+x> locks via i3lock-fancy-multimonitor
+bindsym $mod+Shift+x exec --no-startup-id "i3lock-fancy -n -p"
 
 for_window [class="^.*"] border pixel 0
 
@@ -187,10 +191,11 @@ bar {
       font pango:DejaVu Sans Mono, Icons 10
       position top
 
-      status_command ~/src/rust/i3status-rust/target/release/i3status-rs ~/.config/i3/i3status.toml
-      #status_command i3status-rs ~/.config/i3/i3status.toml
+      #status_command ~/src/rust/i3status-rust/target/release/i3status-rs ~/.config/i3/i3status.toml
+      status_command i3status-rs ~/.config/i3/i3status.toml
 }
 
 # autostart
 exec --no-startup-id "compton --config ~/.config/compton/compton.conf -b"
 exec --no-startup-id "feh --randomize --recursive --bg-fill ~/img/wallpaper"
+exec --no-startup-id "mons -a"
