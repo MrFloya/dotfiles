@@ -37,14 +37,14 @@
 	},
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
+	"update.enableWindowsBackgroundUpdates": false,
 	"telemetry.enableCrashReporter": false,
 	"telemetry.enableTelemetry": false,
+	"window.menuBarVisibility": "toggle",
 	"workbench.activityBar.visible": true,
 	"workbench.colorTheme": "An Old Hope",
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.startupEditor": "newUntitledFile",
-	"window.menuBarVisibility": "toggle",
-	"update.enableWindowsBackgroundUpdates": false,
 	// Extensions
 	"C_Cpp.intelliSenseEngine": "Default",
 	"crates.upToDateDecorator": "✓",
@@ -160,6 +160,6 @@
 	"python.formatting.provider": "autopep8",
 	"rust.all_targets": false,
 	"rust.build_on_save": true,
-	"rust.cfg_test": false
+	"rust.cfg_test": false,
 	"vsicons.presets.foldersAllDefaultIcon": true,
 }
