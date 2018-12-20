@@ -18,7 +18,14 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'w0rp/ale'
 
 " Completion (ncm2)
+Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
+
+" LSP support
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+\ }
 
 " Language support
 Plug 'lervag/vimtex'
@@ -60,7 +67,7 @@ set scrolloff=3
 
 set wildmenu
 set wildmode=list:longest
-set wildignore=.hg,.svn,.git,*~,*.png,*.jpg,*.gif,*.pdf
+set wildignore=.hg,.svn,.git,*~,*.png,*.jpg,*.gif,*.pdf,__pycache__,
 
 " Permanent undo
 set undodir=~/.vimdid
@@ -74,8 +81,8 @@ set gdefault
 
 " Search with ripgrep if available
 if executable('rg')
-	set grepprg=rg\ --no-heading\ --vimgrep
-	set grepformat=%f:%l:%c:%m
+    set grepprg=rg\ --no-heading\ --vimgrep
+    set grepformat=%f:%l:%c:%m
 endif
 
 " Tabs
@@ -168,3 +175,9 @@ command! -bang -nargs=* Rg
   \ <bang>0 ? fzf#vim#with_preview('up:60%')
   \         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \ <bang>0)
+
+" languageClient
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls'],
+    \ }
+let g:LanguageClient_autoStart = 1
