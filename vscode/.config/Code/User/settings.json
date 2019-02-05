@@ -162,4 +162,5 @@
 	"rust.build_on_save": true,
 	"rust.cfg_test": false,
 	"vsicons.presets.foldersAllDefaultIcon": true,
+	"window.titleBarStyle": "native",
 }
