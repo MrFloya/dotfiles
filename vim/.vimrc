@@ -21,6 +21,9 @@ Plug 'w0rp/ale'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
 
+" Completion sources
+Plug 'ncm2/ncm2-bufword'
+
 " LSP support
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -32,6 +35,9 @@ Plug 'lervag/vimtex'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
+
+" Show function signature and inline doc via languageclient
+Plug 'Shougo/echodoc.vim'
 
 call plug#end()
 
@@ -52,6 +58,7 @@ set hidden
 "set nowrap
 set nojoinspaces
 set number
+set relativenumber
 
 set formatoptions=tc " wrap text and comments using textwidth
 set formatoptions+=r " continue comments when pressing ENTER in Insert mode
@@ -111,6 +118,10 @@ set listchars=nbsp:¬,extends:»,precedes:«,trail:•,tab:>-
 " Colors
 set background=dark
 " colorscheme base16-atelier-dune
+
+" Diffs
+set diffopt+=algorithm:patience
+set diffopt+=indent-heuristic
 
 " ======================
 " # KEYBINDINGS
@@ -181,3 +192,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
     \ }
 let g:LanguageClient_autoStart = 1
+
+" ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
