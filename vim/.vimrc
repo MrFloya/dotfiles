@@ -111,6 +111,7 @@ set showcmd
 set mouse=a
 set colorcolumn=100
 set laststatus=2
+set signcolumn=yes
 
 set list
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•,tab:>-
@@ -174,9 +175,9 @@ imap <F1> <Esc>
 " ======================
 "
 " ale
-let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_save = 1
+let g:ale_lint_on_save = 0
+let g:ale_rust_cargo_use_check = 1
 
 " fzf
 let g:fzf_layout = { 'down': '~20%' }
@@ -192,6 +193,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
     \ }
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_useVirtualText = 0
 
 " ncm2
 autocmd BufEnter * call ncm2#enable_for_buffer()
