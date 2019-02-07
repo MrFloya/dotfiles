@@ -170,10 +170,16 @@ imap <F1> <Esc>
 " # LANGUAGE SETTINGS
 " ======================
 
+" Rust
+let g:rustfmt_command = "rustfmt"
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+
 " ======================
 " # PLUGIN SETTINGS
 " ======================
-"
+
 " ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 0
