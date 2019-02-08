@@ -4,7 +4,7 @@
 set nocompatible
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
