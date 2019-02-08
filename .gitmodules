@@ -25,3 +25,6 @@
 [submodule "racer"]
 	path = vim/.vim/bundle/racer
 	url = git://github.com/phildawes/racer.git
+[submodule "vim/.config/base16-shell"]
+	path = vim/.config/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
