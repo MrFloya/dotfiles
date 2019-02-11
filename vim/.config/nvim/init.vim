@@ -36,6 +36,8 @@ Plug 'lervag/vimtex'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'hankchiutw/flutter-reload.vim'
 
 " Show function signature and inline doc via languageclient
 Plug 'Shougo/echodoc.vim'
@@ -176,7 +178,7 @@ let g:rustfmt_command = "rustfmt"
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
-let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0]
+let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0] . "/lib/rustlib/src/rust/src"
 
 " ======================
 " # PLUGIN SETTINGS
