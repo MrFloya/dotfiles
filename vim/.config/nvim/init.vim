@@ -15,7 +15,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 
-" Syntax highlighting (ale)
+" Linting & Quick Fixes (ale)
 Plug 'w0rp/ale'
 
 " Completion (ncm2)
@@ -26,10 +26,13 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 
 " LSP support
+" LanguageClient for general integration
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
 \ }
+" EchoDoc to show inline function signatures and documentation
+Plug 'Shougo/echodoc.vim'
 
 " Language support
 Plug 'lervag/vimtex'
@@ -38,9 +41,11 @@ Plug 'rust-lang/rust.vim'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'hankchiutw/flutter-reload.vim'
+Plug 'plasticboy/vim-markdown'
 
-" Show function signature and inline doc via languageclient
-Plug 'Shougo/echodoc.vim'
+" Notes (experimental)
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 call plug#end()
 
@@ -159,36 +164,35 @@ nnoremap <silent> g* g*zz
 
 " Open hotkeys
 map <C-p> :Files<CR>
+map <C-o> :Buffers<CR>
 
 " Suspend with Ctrl-F
-inoremap <C-f> :sus<CR>
-vnoremap <C-f> :sus<CR>
+inoremap <C-f> <Esc>:sus<CR>
+vnoremap <C-f> <Esc>:sus<CR>
 nnoremap <C-f> :sus<CR>
 
 " I can type :help on my own, thanks.
 map <F1> <Esc>
 imap <F1> <Esc>
 
+" Completion
+inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
+inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
+
 " ======================
 " # LANGUAGE SETTINGS
 " ======================
 
 " Rust
-let g:rustfmt_command = "rustfmt"
+let g:rustfmt_command = 'rustfmt'
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
-let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0] . "/lib/rustlib/src/rust/src"
+let $RUST_SRC_PATH = systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
 
 " ======================
 " # PLUGIN SETTINGS
 " ======================
-
-" ale
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_save = 0
-let g:ale_rust_cargo_use_check = 1
-let g:ale_virtualtext_cursor = 0
 
 " fzf
 let g:fzf_layout = { 'down': '~20%' }
@@ -199,6 +203,16 @@ command! -bang -nargs=* Rg
   \         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \ <bang>0)
 
+" ale
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_save = 0
+let g:ale_rust_cargo_use_check = 1
+let g:ale_virtualtext_cursor = 0
+
+" ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+
 " languageClient
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
@@ -206,6 +220,7 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_useVirtualText = 0
 
-" ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+" notes
+let g:notes_directories = ['~/sync/doc/notes']
+let g:notes_suffix = '.md'
+let g:notes_title_sync = 'rename_file'
