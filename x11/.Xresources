@@ -1,3 +1,7 @@
+# Monitor DPI
+Xft.dpi:	192
+
+# xterm settings
 xterm*termName:		xterm-256color
 xterm*faceName:		DejaVu Sans Mono:size=9
 xterm*foreground:	#dedede
@@ -6,5 +10,3 @@ xterm*cursorColor:	#cdcdcd
 xterm*scollBar:		false
 xterm*antialias:	true
 xterm*locale:		true
-
-Xft.dpi:		192
