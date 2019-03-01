@@ -44,8 +44,8 @@ Plug 'hankchiutw/flutter-reload.vim'
 Plug 'plasticboy/vim-markdown'
 
 " Notes (experimental)
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
+Plug 'pedrosans/vim-misc'
+Plug 'pedrosans/vim-notes'
 
 call plug#end()
 
@@ -133,6 +133,13 @@ set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
 
 " ======================
+" # COMMANDS
+" ======================
+"
+" trim trailing whitespaces
+command TrimTrailing :%s/\s\+$//
+
+" ======================
 " # KEYBINDINGS
 " ======================
 "
@@ -205,7 +212,7 @@ command! -bang -nargs=* Rg
 
 " ale
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_save = 0
+let g:ale_lint_on_save = 1
 let g:ale_rust_cargo_use_check = 1
 let g:ale_virtualtext_cursor = 0
 
@@ -224,3 +231,5 @@ let g:LanguageClient_useVirtualText = 0
 let g:notes_directories = ['~/sync/doc/notes']
 let g:notes_suffix = '.md'
 let g:notes_title_sync = 'rename_file'
+let g:notes_unicode_enabled = 0
+let g:notes_smart_quotes = 0
