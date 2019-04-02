@@ -2,9 +2,9 @@
 
 #########################################################
 #
-# PAMUTE
+# pa_switchsink
 #
-# Mute/Unmute individual Pulseaudio's streams using Rofi.
+# Set active pulseaudio sink
 #
 # Requires:
 #  - pactl
