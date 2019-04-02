@@ -1,0 +1,209 @@
+# Inputs
+input * xkb_layout "de"
+# TODO: Fix input name
+input * tap enabled
+
+# Windows key is mod
+set $mod Mod4
+
+# Font is DejaVu Sans Mono with Icon fallback
+font pango:DejaVu Sans Mono, Icons 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# <Mod-Enter> to start alacritty
+bindsym $mod+Return exec alacritty
+
+# <Mod-Shift-q> to force kill the window
+bindsym $mod+Shift+q kill
+
+# <Mod+d> to start dmenu for all applications
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "DejaVu Sans Mono-11"
+# <Mod+Shift+d> to start i3-dmenu-desktop (dmenu for applications with *.desktop file)
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'DejaVu Sans Mono-11'"
+
+# Vi keybindings for window focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Currently also with arrow keys..
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Vi keybindings for window movement
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Currently also with arrow keys..
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# <Mod+(b,v)> to controll container splits
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# define workspaces
+set $w1 "1: zsh"
+set $w2 "2: web"
+set $w3 "3: dev"
+set $w4 "4: phd"
+set $w5 "5: phd"
+set $w6 "6: video"
+set $w7 "7: music"
+set $w8 "8: mail"
+set $w9 "9: mm"
+set $w0 "100: tmp"
+
+# <Mod+(Shift)+Tab> to cycle workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+1 workspace $w1
+bindsym $mod+2 workspace $w2
+bindsym $mod+3 workspace $w3
+bindsym $mod+4 workspace $w4
+bindsym $mod+5 workspace $w5
+bindsym $mod+6 workspace $w6
+bindsym $mod+7 workspace $w7
+bindsym $mod+8 workspace $w8
+bindsym $mod+9 workspace $w9
+bindsym $mod+0 workspace $w0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $w1
+bindsym $mod+Shift+2 move container to workspace $w2
+bindsym $mod+Shift+3 move container to workspace $w3
+bindsym $mod+Shift+4 move container to workspace $w4
+bindsym $mod+Shift+5 move container to workspace $w5
+bindsym $mod+Shift+6 move container to workspace $w6
+bindsym $mod+Shift+7 move container to workspace $w7
+bindsym $mod+Shift+8 move container to workspace $w8
+bindsym $mod+Shift+9 move container to workspace $w9
+bindsym $mod+Shift+0 move container to workspace $w10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# exit sway (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+# move to other output
+mode "monitor" {
+    bindsym Left move container to output left
+    bindsym Right move container to output right
+    bindsym Up move container to output up
+    bindsym Down move container to output down
+
+    bindsym Shift+Left move workspace to output left
+    bindsym Shift+Right move workspace to output right
+    bindsym Shift+Up move workspace to output up
+    bindsym Shift+Down move workspace to output down
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+m mode "monitor"
+
+
+# bind brightness keys
+bindsym XF86MonBrightnessUp exec "xbacklight -steps 1 -time 0 -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -steps 1 -time 0 -dec 10"
+
+# bind volume keys
+bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
+bindsym XF86AudioLowerVolume exec "pamixer -d 5"
+bindsym XF86AudioMute exec "pamixer -t"
+
+# bind media keys
+bindsym XF86AudioPrev exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioPlay exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioPause exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioNext exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+# <Mod+Shift+#> sets new random wallpapers
+# TODO: find replacement
+#bindsym $mod+Shift+numbersign exec --no-startup-id "feh --randomize --recursive --bg-fill ~/img/wallpaper"
+
+bindsym $mod+F1 exec --no-startup-id "~/bin/pa_switchsink"
+bindsym $mod+F9 exec --no-startup-id "~/bin/sway_monitor"
+
+# <Mod+Shift+x> locks via swaylock
+bindsym $mod+Shift+x exec --no-startup-id "swaylock -elF"
+
+default_border none
+
+gaps outer 5
+gaps inner 10
+smart_gaps on
+
+bar {
+      font pango:DejaVu Sans Mono, Icons 10
+      position top
+
+      #status_command ~/src/rust/i3status-rust/target/release/i3status-rs ~/.config/i3/i3status.toml
+      status_command i3status-rs ~/.config/i3/i3status.toml
+}
+
+# include config.d
+include ~/.config/sway/config.d/*
+
+# include machine specific configuration
+include ~/.config/sway/config.d/`hostname`
+
+# autostart

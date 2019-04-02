@@ -1,0 +1,2 @@
+exec systemctl --user import-environment
+exec systemctl --user start sway-session.target
