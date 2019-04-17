@@ -42,6 +42,7 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'hankchiutw/flutter-reload.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'mephux/bro.vim'
 
 " Notes (experimental)
 Plug 'pedrosans/vim-misc'
