@@ -184,7 +184,7 @@ bindsym $mod+F1 exec --no-startup-id "~/bin/pa_switchsink"
 bindsym $mod+F9 exec --no-startup-id "~/bin/sway_monitor"
 
 # <Mod+Shift+x> locks via swaylock
-bindsym $mod+Shift+x exec --no-startup-id "swaylock -elF"
+bindsym $mod+Shift+x exec --no-startup-id "swaylock -elfF -c 000000"
 
 default_border none
 
@@ -207,3 +207,4 @@ include ~/.config/sway/config.d/*
 include ~/.config/sway/`hostname`
 
 # autostart
+exec --no-startup-id QSyncthingTray
