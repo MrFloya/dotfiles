@@ -1,0 +1,9 @@
+# ## INPUTS ##
+
+# ## OUTPUTS ##
+
+# Internal screen
+output eDP-1 scale 1.75
+
+# Beamer HDMI
+output HDMI-A-1 mode 1280x800
