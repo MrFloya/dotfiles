@@ -45,8 +45,8 @@
 	"workbench.colorTheme": "An Old Hope",
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.startupEditor": "newUntitledFile",
+	"window.titleBarStyle": "native",
 	// Extensions
-	"C_Cpp.intelliSenseEngine": "Default",
 	"crates.upToDateDecorator": "✓",
 	"cSpell.allowCompoundWords": true,
 	"cSpell.enabledLanguageIds": [
@@ -161,6 +161,5 @@
 	"rust.all_targets": false,
 	"rust.build_on_save": true,
 	"rust.cfg_test": false,
-	"vsicons.presets.foldersAllDefaultIcon": true,
-	"window.titleBarStyle": "native",
+	"vsicons.presets.foldersAllDefaultIcon": true
 }
