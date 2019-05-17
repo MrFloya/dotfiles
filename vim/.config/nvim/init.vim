@@ -9,11 +9,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-speeddating'
+Plug 'junegunn/vim-peekaboo'
 
 " GUI enhancements
 Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'mhinz/vim-signify'
 
 " Linting & Quick Fixes (ale)
 Plug 'w0rp/ale'
