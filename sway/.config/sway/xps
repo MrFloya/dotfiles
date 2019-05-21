@@ -3,7 +3,7 @@
 # ## OUTPUTS ##
 
 # Internal screen
-output eDP-1 scale 1.75
+output eDP-1 scale 1.75 bg ~/img/wallpaper/wallpaper fill
 
 # Beamer HDMI
 output HDMI-A-1 mode 1280x800
