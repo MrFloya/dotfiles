@@ -71,17 +71,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# define workspaces
-set $w1 "1: zsh"
-set $w2 "2: web"
-set $w3 "3: dev"
-set $w4 "4: phd"
-set $w5 "5: phd"
-set $w6 "6: video"
-set $w7 "7: music"
-set $w8 "8: mail"
-set $w9 "9: mm"
-set $w0 "100: tmp"
+# include machine specific configuration (includes workspace definitions)
+include ~/.config/sway/`hostname`
 
 # <Mod+(Shift)+Tab> to cycle workspaces
 bindsym $mod+Tab workspace next
@@ -112,8 +103,8 @@ bindsym $mod+Shift+0 move container to workspace $w10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# exit sway (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# exit sway (ends the wayland session)
+bindsym $mod+Shift+e exec "swaynag -t warning -e bottom -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit sway' 'swaymsg -t exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -188,6 +179,7 @@ bindsym $mod+Shift+x exec --no-startup-id "swaylock -elfF -c 000000"
 
 default_border none
 
+# gaps
 gaps outer 5
 gaps inner 10
 smart_gaps on
@@ -200,11 +192,8 @@ bar {
       status_command i3status-rs ~/.config/i3/i3status.toml
 }
 
-# include config.d
+# include dynamic configuration from config.d
 include ~/.config/sway/config.d/*
-
-# include machine specific configuration
-include ~/.config/sway/`hostname`
 
 # autostart
 exec --no-startup-id QSyncthingTray

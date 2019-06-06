@@ -1,0 +1,4 @@
+default-timeout=5000
+ignore-timeout=1
+font=monospace 11
+markup=1
