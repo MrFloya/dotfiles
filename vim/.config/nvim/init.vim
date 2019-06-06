@@ -11,6 +11,7 @@ Plug 'ciaranm/securemodelines'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/goyo.vim'
 
 " GUI enhancements
 Plug 'chriskempson/base16-vim'
