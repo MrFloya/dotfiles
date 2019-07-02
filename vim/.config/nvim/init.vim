@@ -8,6 +8,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'junegunn/vim-peekaboo'
@@ -217,9 +218,25 @@ command! -bang -nargs=* Rg
 
 " ale
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_save = 1
-let g:ale_rust_cargo_use_check = 1
-let g:ale_virtualtext_cursor = 0
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_enter = 0
+let g:ale_virtualtext_cursor = 1
+
+highlight ALEError guibg=None
+highlight ALEWarning guibg=None
+
+let g:ale_linters = {'rust': ['rls'], 'python': ['flake8']}
+
+let g:ale_rust_rls_config = {
+    \ 'rust': {
+        \ 'all_targets': 1,
+        \ 'build_on_save': 1,
+        \ 'clippy_preference': 'on'
+    \ }
+\ }
+
+let g:ale_python_flake8_options = '--max-line-length=120'
 
 " ncm2
 autocmd BufEnter * call ncm2#enable_for_buffer()
