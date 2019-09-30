@@ -26,7 +26,6 @@ Plug 'w0rp/ale'
 " Completion (ncm2)
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
-
 " Completion sources
 Plug 'ncm2/ncm2-bufword'
 
@@ -39,7 +38,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 " EchoDoc to show inline function signatures and documentation
 Plug 'Shougo/echodoc.vim'
 
-" Language support
+" Language specific
 Plug 'lervag/vimtex'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
@@ -49,7 +48,7 @@ Plug 'hankchiutw/flutter-reload.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'mephux/bro.vim'
 
-" Notes (experimental)
+" Notes
 Plug 'pedrosans/vim-misc'
 Plug 'pedrosans/vim-notes'
 
@@ -179,6 +178,8 @@ nnoremap <silent> g* g*zz
 map <C-p> :Files<CR>
 map <C-o> :Buffers<CR>
 
+map <C-Space> :Goyo<CR>
+
 " Suspend with Ctrl-F
 inoremap <C-f> <Esc>:sus<CR>
 vnoremap <C-f> <Esc>:sus<CR>
@@ -207,15 +208,6 @@ let $RUST_SRC_PATH = systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/
 " # PLUGIN SETTINGS
 " ======================
 
-" fzf
-let g:fzf_layout = { 'down': '~20%' }
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \ <bang>0 ? fzf#vim#with_preview('up:60%')
-  \         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \ <bang>0)
-
 " ale
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 0
@@ -237,9 +229,19 @@ let g:ale_rust_rls_config = {
 
 let g:ale_python_flake8_options = '--max-line-length=120'
 
-" ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+
+" fzf
+let g:fzf_layout = { 'down': '~20%' }
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \ <bang>0 ? fzf#vim#with_preview('up:60%')
+  \         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \ <bang>0)
+
+" goyo
+let g:goyo_width = '30%'
+let g:goyo_height = '90%'
 
 " languageClient
 let g:LanguageClient_serverCommands = {
@@ -247,6 +249,10 @@ let g:LanguageClient_serverCommands = {
     \ }
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_useVirtualText = 0
+
+" ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
 " notes
 let g:notes_directories = ['~/sync/doc/notes']
