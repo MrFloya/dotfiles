@@ -138,8 +138,10 @@ if has('nvim')
 end
 
 " Diffs
-set diffopt+=algorithm:patience
-set diffopt+=indent-heuristic
+if has('nvim-0.3')
+    set diffopt+=algorithm:patience
+    set diffopt+=indent-heuristic
+end
 
 " ======================
 " # COMMANDS
@@ -258,8 +260,10 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_useVirtualText = 0
 
 " ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+if has('nvim-0.3')
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    set completeopt=noinsert,menuone,noselect
+end
 
 " notes
 let g:notes_directories = ['~/sync/doc/notes']
