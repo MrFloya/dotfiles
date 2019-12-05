@@ -23,11 +23,13 @@ Plug 'mhinz/vim-signify'
 " Linting & Quick Fixes (ale)
 Plug 'w0rp/ale'
 
-" Completion (ncm2)
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
-" Completion sources
-Plug 'ncm2/ncm2-bufword'
+" Completion (ncm2) only supported on >= nvim-0.3
+if has('nvim-0.3')
+    Plug 'roxma/nvim-yarp'
+    Plug 'ncm2/ncm2'
+    " Completion sources
+    Plug 'ncm2/ncm2-bufword'
+end
 
 " LSP support
 " LanguageClient for general integration
@@ -130,8 +132,10 @@ set list
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•,tab:>-
 
 " Colors
-let base16colorspace=256
-colorscheme base16-atelier-dune
+if has('nvim')
+    let base16colorspace=256
+    colorscheme base16-atelier-dune
+end
 
 " Diffs
 set diffopt+=algorithm:patience
@@ -214,8 +218,11 @@ let g:ale_lint_on_save = 0
 let g:ale_lint_on_enter = 0
 let g:ale_virtualtext_cursor = 1
 
-highlight ALEError guibg=None
-highlight ALEWarning guibg=None
+" color None seems to only be supported on nvim
+if has('nvim')
+    highlight ALEError guibg=None
+    highlight ALEWarning guibg=None
+end
 
 let g:ale_linters = {'rust': ['rls'], 'python': ['flake8']}
 
