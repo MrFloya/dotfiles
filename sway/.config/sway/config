@@ -171,11 +171,20 @@ bindsym XF86AudioNext exec "DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/b
 # TODO: find replacement
 #bindsym $mod+Shift+numbersign exec --no-startup-id "feh --randomize --recursive --bg-fill ~/img/wallpaper"
 
+# rofi menus (audio + monitor)
 bindsym $mod+F1 exec --no-startup-id "~/bin/pa_switchsink"
 bindsym $mod+F9 exec --no-startup-id "~/bin/sway_monitor"
 
 # <Mod+Shift+x> locks via swaylock
 bindsym $mod+Shift+x exec --no-startup-id "swaylock -elfF -c 000000"
+
+# screenshots
+# - Print for whole screen
+bindsym Print exec swayshot
+# - Alt + Print for a focused window
+bindsym Mod1+Print exec swayshot window
+# - Shift + Print for a selected region
+bindsym Shift+Print exec swayshot region
 
 default_border none
 
