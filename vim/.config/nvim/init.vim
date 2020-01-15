@@ -49,6 +49,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'hankchiutw/flutter-reload.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'mephux/bro.vim'
+Plug 'chrisbra/csv.vim'
 
 " Notes
 Plug 'pedrosans/vim-misc'
@@ -266,8 +267,10 @@ if has('nvim-0.3')
 end
 
 " notes
-let g:notes_directories = ['~/sync/doc/notes']
 let g:notes_suffix = '.md'
 let g:notes_title_sync = 'rename_file'
 let g:notes_unicode_enabled = 0
 let g:notes_smart_quotes = 0
+if isdirectory('~/sync/doc/notes')
+    let g:notes_directories = ['~/sync/doc/notes']
+end
