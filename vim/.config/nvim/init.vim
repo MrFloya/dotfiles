@@ -4,6 +4,8 @@
 set nocompatible
 filetype off
 
+let mapleader = ','
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 " VIM enhancements
@@ -44,6 +46,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'lervag/vimtex'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
+Plug 'arzg/vim-rust-syntax-ext'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'hankchiutw/flutter-reload.vim'
@@ -211,6 +214,66 @@ let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
 let $RUST_SRC_PATH = systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
 
+" Latex
+if has('nvim-0.3')
+    augroup vimtex-ncm-setup
+        autocmd!
+        autocmd Filetype tex call ncm2#register_source({
+                \ 'name' : 'vimtex-cmds',
+                \ 'priority': 8,
+                \ 'complete_length': -1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'prefix', 'key': 'word'},
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
+        autocmd Filetype tex call ncm2#register_source({
+                \ 'name' : 'vimtex-labels',
+                \ 'priority': 8,
+                \ 'complete_length': -1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'combine',
+                \             'matchers': [
+                \               {'name': 'substr', 'key': 'word'},
+                \               {'name': 'substr', 'key': 'menu'},
+                \             ]},
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm2#labels,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
+        autocmd Filetype tex call ncm2#register_source({
+                \ 'name' : 'vimtex-files',
+                \ 'priority': 8,
+                \ 'complete_length': -1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'combine',
+                \             'matchers': [
+                \               {'name': 'abbrfuzzy', 'key': 'word'},
+                \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+                \             ]},
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm2#files,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
+        autocmd Filetype tex call ncm2#register_source({
+                \ 'name' : 'bibtex',
+                \ 'priority': 8,
+                \ 'complete_length': -1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'combine',
+                \             'matchers': [
+                \               {'name': 'prefix', 'key': 'word'},
+                \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+                \               {'name': 'abbrfuzzy', 'key': 'menu'},
+                \             ]},
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
+      augroup END
+  end
+
 " ======================
 " # PLUGIN SETTINGS
 " ======================
@@ -264,6 +327,7 @@ let g:LanguageClient_useVirtualText = 0
 if has('nvim-0.3')
     autocmd BufEnter * call ncm2#enable_for_buffer()
     set completeopt=noinsert,menuone,noselect
+
 end
 
 " notes
