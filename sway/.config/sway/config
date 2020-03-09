@@ -198,7 +198,8 @@ bar {
       position top
 
       #status_command ~/src/rust/i3status-rust/target/release/i3status-rs ~/.config/i3/i3status.toml
-      status_command i3status-rs ~/.config/i3/i3status.toml
+      #status_command i3status-rs ~/.config/i3/i3status.toml
+      swaybar_command waybar
 }
 
 # include dynamic configuration from config.d
