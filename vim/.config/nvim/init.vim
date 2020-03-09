@@ -5,6 +5,7 @@ set nocompatible
 filetype off
 
 let mapleader = ','
+let maplocalleader = ','
 
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -215,6 +216,19 @@ let g:rustfmt_fail_silently = 0
 let $RUST_SRC_PATH = systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
 
 " Latex
+"
+" latexmk build dir to find labels for completion
+let g:vimtex_compiler_latexmk = {
+    \ 'build_dir' : './build',
+    \}
+
+let g:vimtex_toc_config = {
+    \ 'layers' : [ 'content', 'todo', 'include' ],
+    \ 'split_width' : 45,
+    \ 'tocdepth' : 1,
+    \}
+
+" integration with ncm2
 if has('nvim-0.3')
     augroup vimtex-ncm-setup
         autocmd!
