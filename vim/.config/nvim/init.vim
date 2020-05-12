@@ -24,7 +24,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'mhinz/vim-signify'
 
 " Linting & Quick Fixes (ale)
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Completion (ncm2) only supported on >= nvim-0.3
 if has('nvim-0.3')
@@ -55,9 +55,12 @@ Plug 'plasticboy/vim-markdown'
 Plug 'mephux/bro.vim'
 Plug 'chrisbra/csv.vim'
 
-" Notes
-Plug 'pedrosans/vim-misc'
-Plug 'pedrosans/vim-notes'
+" Notes (only for non-root)
+" FIXME: This should work via uid/euid but $UID doesn't work
+if $USER != 'root'
+    Plug 'pedrosans/vim-misc'
+    Plug 'pedrosans/vim-notes'
+end
 
 call plug#end()
 
@@ -304,7 +307,7 @@ if has('nvim')
     highlight ALEWarning guibg=None
 end
 
-let g:ale_linters = {'rust': ['rls'], 'python': ['flake8']}
+let g:ale_linters = {'rust': ['rust-analyzer'], 'python': ['flake8']}
 
 let g:ale_rust_rls_config = {
     \ 'rust': {
