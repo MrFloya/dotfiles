@@ -233,6 +233,8 @@ let g:vimtex_toc_config = {
     \ 'tocdepth' : 1,
     \}
 
+let g:tex_flavor = "latex"
+
 " integration with ncm2
 if has('nvim-0.3')
     augroup vimtex-ncm-setup
